@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active:
+    - local
+  application:
+    name: inox-app
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: <github-client-id>
+            client-secret: <github-secret-id>
+            
+  data:
+    cassandra:
+      keyspace-name: main
+      username: <cassandra-client-id>
+      password: <cassandra-client-secret>
+      schema-action: create-if-not-exists
+      request:
+        timeout: 10s
+      connection:
+        connect-timeout: 10s
+        init-query-timeout: 10s
+              
+astra:
+  db:
+    id: <db-id>
+    region: <db-region>
+    keyspace: main
+    application:
+      token: <cassandra-client-token>
+      
+datastax.astra:
+  secure-connect-bundle: secure-connect.zip
